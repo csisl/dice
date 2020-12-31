@@ -11,6 +11,8 @@ import android.widget.TextView
  * Instead of calling a main() function, the Android system calls the
  * onCreate() method of your MainActivity when your app is opened for
  * the first time.
+ *
+ * Style guide: https://developer.android.com/kotlin/style-guide?authuser=2
  */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,11 +30,12 @@ class MainActivity : AppCompatActivity() {
          * to click, in this case, on the Button.
          */
         rollButton.setOnClickListener {
-//            val toast = Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT)
-//            toast.show()
-//            Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
-//            val resultView: TextView = findViewById(R.id.rollResult)
-//            resultView.text = "6"
+            /** Below is code that made text appear in a pop-up, post textView
+             * val toast = Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT)
+             * toast.show()
+             * But a cleaner way to do this:
+             * Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
+             */
             diceRoll()
 
         }
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
         val resultView: TextView = findViewById(R.id.rollResult)
+        // assign the text to the result view
         resultView.text = diceRoll.toString()
     }
 }
